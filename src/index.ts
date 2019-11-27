@@ -26,6 +26,15 @@ import { User } from './models/User';
 // }, 4000);
 
 
-const user = new User({ name: 'New update', age: 56565, id: 3});
+// const user = new User({ name: 'New update', age: 56565, id: 3});
 
-user.save();
+// user.save();
+
+
+const user = new User({ name: 'new 1', age: 1});
+
+user.events.on( 'change', () => {
+    console.log('change!');
+});
+
+user.events.trigger('change');
